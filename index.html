@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<meta name="decription" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link id="" rel="stylesheet" type="text/css" href="static/css/theme-hust-blue-style-global.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="static/css/vant.css" />
+		<link id="" rel="stylesheet" type="text/css" href="static/css/demo-mb.css" />
+</head>
+
+<style type="text/css">
+	.page-card-con .page-card-item .detail-part .info-box{
+		font-size: 21px;
+		line-height: 34px;
+	}
+	.page-card-con .page-card-item .header-part{
+		font-size: 24px;
+	}
+	#CRXRQ{
+		display:none;
+	}
+	
+	.page-header-container .page-title .title-box{
+		height: 2px;
+	}
+
+</style>
+<body>
+<!-- <div class="" id="null">
+				<div class="" style="text-align: center;font-size: 35px;line-height: 200px;">
+					
+					无数据
+				</div>
+			</div> -->
+       <div class="h5-page-container"id="body">
+			<div class="page-header-container">
+				<div class="page-title">
+					
+					<p class="title-box" id="title_div" >学生进出校信息</p>
+				</div>
+			</div>
+			<div class="tab-page-body" >
+				<ul class="page-card-con">
+					<li class="page-card-item">
+						<div class="header-part" id="bm_title">
+							辅导员批准信息
+						</div>
+						<div class="detail-part cl-after">
+							<span class="info-box" style="width:100%;" id="BM">辅导员：王丹</span>
+							<span class="info-box" style="width:100%;" id="BMYJ">辅导员意见：同意</span>
+						</div>
+					</li>
+					<li class="page-card-item">
+						<div class="header-part" id="bwc_title">
+							院系批准信息
+						</div>
+						<div class="detail-part cl-after">
+							<span class="info-box" style="width:100%;" id="BWC">院系审批人：李亚</span>
+							<span class="info-box" style="width:100%;" id="BWCYJ">院系意见：同意</span>
+						</div>
+					</li>
+					<li class="page-card-item">
+						<div class="header-part">
+							人员信息
+						</div>
+						<div class="detail-part cl-after">
+							<span class="info-box"style="width:100%;" id="XM">姓名：钱源</span>
+							<span class="info-box"style="width:100%;" id="LXDH">联系电话：19840134947</span>
+							<span class="info-box"style="width:100%;" id="CPHM">学号：2020207325030</span>
+							<span class="info-box"style="width:100%;" id="SFZH">身份证号：340823****5323</span>
+							<span class="info-box"style="width:100%;" id="SY" >申请事由：返校</span>
+							<span class="info-box"style="width:100%;" id="JCXFS" >进出校方式：<span style="color:red">合肥市内-仅入校</span></span>
+							<span class="info-box"style="width:100%;" id="CXFS">出行方式和车次：<span style="color:red">地铁</span></span>
+							<span class="info-box"style="width:100%;" id="CXLX">出行路线：<span style="color:red">庐阳区-安徽中医药大学</span></span>
+							<!-- <span class="info-box"style="width:100%;" id="CRXRQ">出入校日期：</span> -->
+							<span class="info-box"style="width:100%;" id="CXSJ">出校时间：<span style="color:red">无</span></span>
+							<span class="info-box"style="width:100%;" id="RXSJ">入校时间：<span style="color:red">2022-12-14 20:00-21:00</span></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+</body>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/swiper.jquery.min.js"></script>
+<!-- <script type="text/javascript">
+var id = "2212121512319498";
+var m = "19840134947";
+$.ajax({  
+    type:'get',  
+    url:"/tp_up/print/getPrintInfo?id=" + id+"&m="+m,  
+    data:{},  
+    cache:false,  
+    dataType:'json',
+    contentType : 'application/json',
+    success:function(data){
+        $('#XM').html('姓名：'+data.XM);
+        $('#SFZH').html('身份证号：'+data.SFZH);
+        $('#RXSJ').html('入校时间：'+data.SQJXSJD_START);
+	    $('#CXSJ').html('出校时间：'+data.SQJXSJD_END);
+        $('#LXDH').html('联系电话：'+data.LXDH);
+        $('#SY').html('申请事由：'+data.SY);
+        if(data.XH!=''&&data.XH !=null){
+        	//学生
+	        $('#CPHM').html('学号：'+data.XH);
+	        $('#BM').html('辅导员：'+data.BWC);
+	        $('#BMYJ').html('辅导员意见：'+data.BWCYJ);
+	        $('#BWC').html('院系审批人：'+data.BM);
+	        $('#BWCYJ').html('院系意见：'+data.BMYJ);
+	        $('#JCXFS').html('进出校方式：'+'<span style="color:red">'+data.JCXFS+'</span>');
+	        if(data.JCXFS=='合肥市内-出入校'){
+	        	$("#CRXRQ").show();
+	        	var startdate = data.SQJXSJD_START.substring(0, 10);
+	        	var starttime = data.SQJXSJD_START.substring(11);
+	        	var enddate = data.SQJXSJD_END.substring(0, 10);
+	        	var endtime = data.SQJXSJD_END.substring(11);
+	        	console.log(startdate+'到'+enddate);
+	        	console.log(starttime+'到'+endtime);
+		        $('#CRXRQ').html('出入校日期：'+'<span style="color:red">'+startdate+'到'+enddate+'</span>');
+		        $('#RXSJ').html('入校时间：'+'<span style="color:red">'+endtime+'</span>');
+		        $('#CXSJ').html('出校时间：'+'<span style="color:red">'+starttime+'</span>');
+	        }else{
+	        	 if(data.SQJXSJD_END==' '){
+	             	$('#RXSJ').html('入校时间：'+'<span style="color:red">无</span>');
+	             }else{
+	             	$('#RXSJ').html('入校时间：'+'<span style="color:red">'+data.SQJXSJD_END+'</span>');
+	             }
+	             if(data.SQJXSJD_START==' '){
+	             	$('#CXSJ').html('出校时间：'+'<span style="color:red">无</span>');
+	             }else{
+	     	        $('#CXSJ').html('出校时间：'+'<span style="color:red">'+data.SQJXSJD_START+'</span>');
+	             }
+	        }
+	        $('#CXFS').html('出行方式和车次：'+'<span style="color:red">'+data.CXFS+'</span>');
+	        $('#CXLX').html('出行路线：'+'<span style="color:red">'+data.CXLX+'</span>');
+        	$('#bm_title').html('辅导员批准信息');
+        	$('#bwc_title').html('院系批准信息');
+        	$('#title_div').html('学生进出校信息');
+        	$('#body').show();
+        	$('#null').hide();
+        	
+        	//$('#RXSJ').attr('style','width:100%;color:red;');
+            //$('#CXSJ').attr('style','width:100%;color:red;');
+        }else{
+	        $('#CPHM').html('车牌号：'+data.CPHM);
+	        $('#BM').html('部门审批人：'+data.BM);
+	        $('#BMYJ').html('部门意见：'+data.BMYJ);
+	        $('#BWC').html('保卫处审批人：'+data.BWC);
+	        $('#BWCYJ').html('保卫处意见：'+data.BWCYJ);
+	        $('#CXFS').hide();
+	        $('#CXLX').hide();
+	        $('#JCXFS').hide();
+	        $('#CXSJ').hide();
+	        $('#body').show();
+	        $('#title_div').html('校外访客信息');
+	        $('#null').hide();
+        }
+        
+    }  
+});  
+</script> -->
+</html>
